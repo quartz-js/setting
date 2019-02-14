@@ -1,6 +1,6 @@
 import { SettingApi } from '../Api/SettingApi'
 import { Attributes, Manager } from '@railken/quartz-core'
-import { UserAttribute } from '@railken/module/quartz-user/src/app/Attributes/UserAttribute'
+import { UserAttribute } from '@railken/quartz/user/src/app/Attributes/UserAttribute'
 
 export default new Manager({
   name: 'setting',
