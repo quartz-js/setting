@@ -59,11 +59,11 @@ export default {
     }
   },
   mounted () {
-    this.language = container.get('user.settings').get('language', 'en')
+    this.language = container.get('settings').get('language', 'en')
   },
   methods: {
     update() {
-      container.get('user.settings').store('language', this.language).then(() => {
+      container.get('settings').store('language', this.language).then(() => {
         window.location.reload();
       })
     }
