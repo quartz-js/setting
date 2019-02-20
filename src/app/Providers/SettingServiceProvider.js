@@ -11,8 +11,8 @@ export class SettingServiceProvider extends ServiceProvider {
 
     this.addData({
       name: 'setting',
-      description: 'Configure your application',
-      tags: ['data'],
+      icon: require('../../assets/setting-icon.svg'),
+      tags: ['system'],
       route: { name: 'settings.index' },
     })
 
