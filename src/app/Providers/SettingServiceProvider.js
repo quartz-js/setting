@@ -31,7 +31,7 @@ export class SettingServiceProvider extends ServiceProvider {
       return;
     }
 
-    return api.index({}).then(response => {
+    return api.index({show: 99999}).then(response => {
       container.get('settings').load(response.body.data);
     })
   }

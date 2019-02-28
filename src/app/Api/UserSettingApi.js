@@ -9,8 +9,6 @@ export class UserSettingApi extends ResourceApi {
   
   storeByKey (key, value) {
     return this.index({query: "key eq '" + key + "'"}).then(response => {
-
-
       if (response.body.data.length === 0) {
         return Vue.http.post(this.getFullUrl(), { key: key, value: value }, { 
           headers: { 
