@@ -22,6 +22,6 @@ export class UserSettingApi extends ResourceApi {
           }
         });
       }
-    }).then(this.parse)
+    })
   }
 };
