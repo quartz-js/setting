@@ -6,15 +6,7 @@ import { SettingStorage } from '../Services/SettingStorage.js'
 export class SettingServiceProvider extends ServiceProvider {
   register() {
 
-    this.addRoutes('app', require('./../../routes/setting.js'))
     this.addRoutes('app', require('./../../routes/setting-user.js'))
-
-    this.addData({
-      name: 'setting',
-      icon: require('../../assets/setting-icon.svg'),
-      tags: ['system'],
-      route: { name: 'settings.index' },
-    })
 
     this.addLang({
       'en': require('../../../lang/setting/en.json'),
