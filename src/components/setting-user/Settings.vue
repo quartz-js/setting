@@ -1,10 +1,6 @@
 <template>
   <div>
-    <div class='mt-5'>
-      <h2 class='display-1 font-weight-thin'>{{ $t('$quartz.settings.title') }}</h2>
-    </div>
-
-    <v-card class="resource-card content">
+    <v-card class='resource-card content mt-5'>
 
       <v-select
       :label="$t('$quartz.settings.language')"
