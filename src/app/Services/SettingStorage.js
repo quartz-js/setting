@@ -25,4 +25,11 @@ export class SettingStorage {
 
     return this.api.storeByKey(key, value)
   }
+
+  toggle (key, def) {
+
+    let val = !parseInt(this.get(key, def)) ? 1 : 0;
+
+    return this.store(key, val);
+  }
 };
