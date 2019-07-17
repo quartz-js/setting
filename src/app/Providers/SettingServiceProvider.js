@@ -1,5 +1,5 @@
-import { ServiceProvider } from '@railken/quartz-core'
-import { container } from '@railken/quartz-core'
+import { ServiceProvider } from '@quartz/core'
+import { container } from '@quartz/core'
 import { UserSettingApi } from '../Api/UserSettingApi.js'
 import { SettingStorage } from '../Services/SettingStorage.js'
 

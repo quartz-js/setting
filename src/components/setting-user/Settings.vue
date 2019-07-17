@@ -30,7 +30,7 @@
 </template>
 <script>
 
-import { container } from '@railken/quartz-core'
+import { container } from '@quartz/core'
 import { UserSettingApi } from '../../app/Api/UserSettingApi.js'
 
 require('flag-icon-css/css/flag-icon.min.css')

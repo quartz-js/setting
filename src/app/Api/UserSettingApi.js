@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { ResourceApi } from '@railken/quartz-core'
+import { ResourceApi } from '@quartz/core'
 import VueResource from 'vue-resource'
 
 Vue.use(VueResource);
