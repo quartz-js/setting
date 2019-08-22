@@ -24,15 +24,13 @@ export class SettingServiceProvider extends ServiceProvider {
   }
   boot() {
     var api = new UserSettingApi()
-    let storage = new SettingStorage();
+    let storage = new SettingStorage(window.user);
     container.set('settings', storage);
 
     if (!window.user) {
       return;
     }
 
-    return api.index({show: 99999}).then(response => {
-      container.get('settings').load(response.body.data);
-    })
+    return storage.initialize();
   }
 }

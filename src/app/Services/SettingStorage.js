@@ -1,10 +1,19 @@
 import { UserSettingApi } from '../Api/UserSettingApi.js'
+import { container } from '@quartz/core'
 
 export class SettingStorage {
-  constructor() {
+  constructor(owner) {
     this.items = [];
     this.api = new UserSettingApi();
+    this.owner = owner
   }
+
+  initialize()
+  {
+    return this.api.retrieve(this.owner.id).then(response => {
+      container.get('settings').load(response.body.data);
+    })
+  } 
 
   load (resources) {
     for (let i = 0; i < resources.length; i++) {
@@ -23,7 +32,7 @@ export class SettingStorage {
   store (key, value) {
     this.set(key, value);
 
-    return this.api.storeByKey(key, value)
+    return this.api.storeByKey(this.owner.id, key, value)
   }
 
   toggle (key, def) {

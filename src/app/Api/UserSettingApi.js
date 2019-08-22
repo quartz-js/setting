@@ -7,8 +7,12 @@ Vue.use(VueResource);
 export class UserSettingApi extends ResourceApi {
   resource_url = '/user/settings';
   
-  storeByKey (key, value) {
-    return this.index({query: "key eq '" + key + "'"}).then(response => {
+  retrieve (ownerId) {
+    return this.index({query: `ownables.owner_id = '${ownerId}`, show: 99999, include: 'ownables'})
+  }
+
+  storeByKey (ownerId, key, value) {
+    return this.index({query: `ownables.owner_id = '${ownerId}' and key = '${key}'`, include: 'ownables'}).then(response => {
       if (response.body.data.length === 0) {
         return Vue.http.post(this.getFullUrl(), { key: key, value: value }, { 
           headers: { 
@@ -16,7 +20,7 @@ export class UserSettingApi extends ResourceApi {
           }
         });
       } else {
-        return Vue.http.put(this.getFullUrl() + "?query=key eq '" + key + "'", { value: value }, { 
+        return Vue.http.put(this.getFullUrl() + `?query=ownables.owner_id = '${ownerId}' and key eq '${key}'`, { value: value, include: 'ownables' }, { 
           headers: { 
             "Authorization": 'Bearer ' + this.access_token 
           }
