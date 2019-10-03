@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-icon left>mdi-account</v-icon>
+    <q-icon left>mdi-account</q-icon>
     Account
   </div>
 </template>

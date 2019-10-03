@@ -12,7 +12,7 @@ export class UserSettingApi extends ResourceApi {
       if (response.body.data.length === 0) {
         return this.post('', { key: key, value: value });
       } else {
-        return this.put('' + `?query=ownables.owner_id = '${ownerId}' and key eq '${key}'`, { value: value, include: 'ownables' });
+        return this.http.put(this.url('' + `?query=ownables.owner_id = '${ownerId}' and key eq '${key}'`), { value: value, include: 'ownables' });
       }
     })
   }
