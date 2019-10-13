@@ -4,7 +4,8 @@ import _ from 'lodash'
 
 export class SettingStorage {
   constructor(owner) {
-    this.items = [];
+    this.items = {};
+    this.default = {};
     this.api = new UserSettingApi();
     this.owner = owner
   }
@@ -23,11 +24,19 @@ export class SettingStorage {
   }
 
   get (key, def) {
-    return typeof this.items[key] !== "undefined" ? this.items[key] : def
+    return _.get(this.items, key, this.getDefault(key, def))
   }
 
   set (key, value) {
-    this.items[key] = value;
+    _.set(this.items, key, value);
+  }
+
+  setDefault (key, value) {
+    _.set(this.default, key, value);
+  }
+
+  getDefault(key, def) {
+    return _.get(this.default, key, def)
   }
 
   store (key, value) {
