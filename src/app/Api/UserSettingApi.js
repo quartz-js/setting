@@ -1,7 +1,7 @@
 import { ResourceApi } from '@quartz/core'
 
 export class UserSettingApi extends ResourceApi {
-  resource_url = '/user/settings';
+  resource_url = '/api/data/setting';
   
   retrieve (ownerId) {
     return this.index({query: `ownables.owner_id = '${ownerId}`, show: 99999})
